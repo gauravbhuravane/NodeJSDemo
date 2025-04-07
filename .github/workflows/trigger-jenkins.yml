@@ -1,0 +1,14 @@
+name: Trigger Jenkins
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Jenkins Build
+        run: |
+          curl -X POST http://<your-jenkins-ip>:8090/job/NodePipeline/build?token=jenkins123
